@@ -7,7 +7,6 @@ name: RequireIssue
 on:
   pull_request:
     types: [edited, synchronize, opened, reopened]
-  check_run:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
