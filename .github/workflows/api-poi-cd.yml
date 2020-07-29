@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-poi
         registry: openhackt7t44282acr.azurecr.io
-        tags: $SHA8 
+        tag_with_sha: true 
         path: apis/poi/web/
         
     
@@ -54,6 +54,6 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhackt7t44282poi'
-        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:$SHA8'
+        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:sha-$SHA8'
         
         
