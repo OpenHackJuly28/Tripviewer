@@ -51,6 +51,6 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhackt7t44282poi'
-        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:sha-${{ git rev-parse --short github.sha }}'
+        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:latest'
         
         
