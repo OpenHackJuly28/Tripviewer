@@ -30,9 +30,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-userprofile
         registry: openhackt7t44282acr.azurecr.io
-        tag_with_sha: true 
         path: apis/userprofile/
-        tags: latest 
+        tags: ${{ github.sha }} 
         
     
     - name: ACR authentication
@@ -51,6 +50,6 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhackt7t44282userprofile'
-        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-userprofile:latest'
+        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-userprofile:${{ github.sha }}'
         
         
