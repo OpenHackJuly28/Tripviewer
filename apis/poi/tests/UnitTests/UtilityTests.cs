@@ -14,5 +14,6 @@ namespace UnitTests
             Assert.Equal(2002, LoggingEvents.GetPOIByTripID);
             
         }
+        
     }
 }
