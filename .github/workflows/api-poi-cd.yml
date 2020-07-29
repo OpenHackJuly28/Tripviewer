@@ -30,6 +30,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-poi
         registry: openhackt7t44282acr.azurecr.io
+        path: apis/poi/web/
         tags: latest 
       
     
