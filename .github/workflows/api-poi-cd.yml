@@ -23,6 +23,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: devopsoh/api-poi
+        registry: openhackt7t44282acr.azurecr.io
+        tag_with_sha: true 
+        path: apis/poi/web/
+        tags: latest 
+        
+    
     - name: ACR authentication
       uses: azure/docker-login@v1
       with:
@@ -30,27 +42,15 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v1
+    - name: Login via Azure CLI
+      uses: azure/login@v1
       with:
-    #    username: ${{ secrets.DOCKER_USERNAME }}
-    #    password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: devopsoh/api-poi
-    #   registry: openhackt7t44282acr.azurecr.io
-        tag_with_sha: true 
-        path: apis/poi/web/
-        tags: latest 
-      
-    #- name: Login via Azure CLI
-    #  uses: azure/login@v1
-    #  with:
-    #    creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     
         
-    #- uses: azure/webapps-deploy@v2
-    #  with:
-    #    app-name: 'node-rnc'
-    #    images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'openhackt7t44282poi'
+        images: 'openhackt7t44282acr.azurecr.io/sha-:${{ github.sha }}'
         
-    
+        
