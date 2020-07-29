@@ -30,9 +30,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-trips
         registry: openhackt7t44282acr.azurecr.io
-        tag_with_sha: true 
+        tags: ${{ github.sha }}
         path: apis/trips/
-        tags: latest 
+
         
     
     - name: ACR authentication
@@ -51,4 +51,4 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhackt7t44282trips'
-        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-trips:latest'
+        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-trips:${{ github.sha }}'
