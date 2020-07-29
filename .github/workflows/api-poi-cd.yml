@@ -30,6 +30,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-poi
         registry: openhackt7t44282acr.azurecr.io
-        tags: $(git rev-parse --short "$GITHUB_SHA")  
+        tag_with sha: true 
       
     
