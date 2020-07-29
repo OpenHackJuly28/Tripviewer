@@ -30,6 +30,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: devopsoh/api-poi
         registry: openhackt7t44282acr.azurecr.io
-        tag_with sha: true 
+        tag_with_sha: true 
       
     
