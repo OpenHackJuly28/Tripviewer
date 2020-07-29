@@ -36,7 +36,6 @@ jobs:
         registry: openhackt7t44282acr.azurecr.io
         tags: $SHA8 
         path: apis/poi/web/
-        tags: latest 
         
     
     - name: ACR authentication
