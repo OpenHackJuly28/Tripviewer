@@ -17,10 +17,6 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    #Set env variables to use on builds:
-    env:
-      SHA8: ${GITHUB_SHA::8}
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -54,6 +50,6 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'openhackt7t44282poi'
-        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:sha-${{SHA8}}'
+        images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:sha-${{GITHUB_SHA::8}}'
         
         
