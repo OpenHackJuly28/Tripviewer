@@ -8,11 +8,9 @@ jobs:
     name: Linux run bash script
     runs-on: ubuntu-latest
     
-
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
 
     - name: Run bash script to validate API
       run: ./scripts/apicheck.sh https://openhackt7t44282poibroken.azurewebsites.net/api/healthcheck/poi
