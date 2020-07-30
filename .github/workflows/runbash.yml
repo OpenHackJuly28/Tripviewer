@@ -1,4 +1,4 @@
-name: CI
+name: run-bash
 on: 
   push:
       paths: 
@@ -15,4 +15,4 @@ jobs:
 
 
     - name: Moving build to artifacts directory
-      run: ./scripts/apicheck.sh
+      run: ./scripts/apicheck.sh https://openhackt7t44282poi.azurewebsites.net/api/healthcheck/poi
