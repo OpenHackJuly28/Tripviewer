@@ -15,4 +15,4 @@ jobs:
 
 
     - name: Moving build to artifacts directory
-      run: ./scripts/moveFiles.sh
+      run: ./scripts/apicheck.sh
