@@ -57,5 +57,5 @@ jobs:
       uses: azure/CLI@v1
       with:
        inlineScript: |
-          az webapp deployment slot swap --slot staging
+          az webapp deployment slot swap --slot staging -g openhackt7t44282rg --name openhackt7t44282poi
         
