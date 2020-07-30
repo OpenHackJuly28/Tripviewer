@@ -15,4 +15,4 @@ jobs:
 
 
     - name: Run bash script to validate API
-      run: ./scripts/apicheck.sh https://openhackt7t44282poi.azurewebsites.net/api/healthcheck/poi
+      run: ./scripts/apicheck.sh https://openhackt7t44282poibroken.azurewebsites.net/api/healthcheck/poi
