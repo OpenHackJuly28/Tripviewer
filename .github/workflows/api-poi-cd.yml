@@ -1,4 +1,5 @@
 # This is a basic workflow to help you get started with Actions
+# help from https://gist.github.com/hattan/8b9d5aa45f77c8bfab78cb7ea07c8080
 
 name: api-poi-cd
 
@@ -52,11 +53,29 @@ jobs:
         app-name: 'openhackt7t44282poi'
         slot-name: staging
         images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:${{ github.sha }}'
+        key:  
+  test_statging:
+    runs-on: ubuntu-layest
+    needs: [build]
+    steps:
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  
+          
+       
+  swap_prod_env:
+    runs-on: ubuntu-latest
+    needs: [test_statging]
+    steps: 
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}    
         
-        
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-       inlineScript: |
-          az webapp deployment slot swap --slot staging -g openhackt7t44282rg --name openhackt7t44282poi
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az webapp deployment slot swap --slot staging -g openhackt7t44282rg --name openhackt7t44282poi
         
