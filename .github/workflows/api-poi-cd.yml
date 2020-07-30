@@ -54,3 +54,9 @@ jobs:
         images: 'openhackt7t44282acr.azurecr.io/devopsoh/api-poi:${{ github.sha }}'
         
         
+    - name: Azure CLI script
+      uses: azure/CLI@v1
+      with:
+       inlineScript: |
+          az webapp deployment slot swap --slot staging -g openhackt7t44282rg --name openhackt7t44282poi
+        
